@@ -6,3 +6,7 @@
 /[Tt]emp/
 /[Oo]bj/
 /[Uu]ser[Ss]ettings/
+
+# Windows build output
+/*.exe
+/*.dll
