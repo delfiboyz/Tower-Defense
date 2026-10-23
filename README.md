@@ -54,7 +54,7 @@ Workflow `.github/workflows/deploy-web.yml` menjalankan test, build, lalu deploy
 
 ## Versi Unity (lama)
 
-Proyek Unity 2018.4 asli masih ada di folder `Assets/`, dan build Windows-nya di `Build/`.
+Proyek Unity 2018.4 asli masih ada di folder `Assets/`. Buka dengan Unity Editor; folder `Library/` akan dibuat ulang otomatis.
 
 Cara bermain:
 
