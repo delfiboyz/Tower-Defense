@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d1b14" />
+    <meta name="description" content="Tower Defense modern berbasis web — bangun, upgrade, dan pertahankan basismu dari gelombang musuh." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <title>Tower Defense</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="hud glass">
+        <div class="brand">Tower<span>Defense</span></div>
+        <div class="stats">
+          <div class="stat" title="Nyawa"><span class="icon">❤</span><b id="lives">20</b></div>
+          <div class="stat gold" title="Emas"><span class="icon">◆</span><b id="gold">0</b></div>
+          <div class="stat" title="Gelombang"><span class="icon">⚑</span><b id="wave">0</b></div>
+          <div class="stat" title="Skor"><span class="icon">★</span><b id="score">0</b></div>
+        </div>
+        <div class="controls">
+          <button id="btn-pause" class="icon-btn" aria-label="Jeda (Spasi)" title="Jeda (Spasi)">❚❚</button>
+          <div class="segmented" role="group" aria-label="Kecepatan">
+            <button data-speed="1" class="active" title="Kecepatan 1x">1×</button>
+            <button data-speed="2" title="Kecepatan 2x">2×</button>
+            <button data-speed="3" title="Kecepatan 3x">3×</button>
+          </div>
+          <button id="btn-mute" class="icon-btn" aria-label="Suara (M)" title="Suara (M)">🔊</button>
+          <button id="btn-menu" class="icon-btn" aria-label="Menu (Esc)" title="Menu">☰</button>
+        </div>
+      </header>
+
+      <main class="board-wrap">
+        <div class="board">
+          <canvas id="game" aria-label="Papan permainan"></canvas>
+          <div id="toast" class="toast" role="status" aria-live="polite"></div>
+          <aside id="inspector" class="inspector glass" hidden>
+            <div class="inspector-head">
+              <img id="ins-icon" alt="" />
+              <div>
+                <h3 id="ins-name"></h3>
+                <small id="ins-level"></small>
+              </div>
+              <button id="ins-close" class="icon-btn small" aria-label="Tutup">✕</button>
+            </div>
+            <dl id="ins-stats" class="ins-stats"></dl>
+            <button id="ins-target" class="btn ghost"></button>
+            <div class="ins-actions">
+              <button id="ins-upgrade" class="btn primary"></button>
+              <button id="ins-sell" class="btn danger"></button>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="dock glass">
+        <div id="shop" class="shop" role="toolbar" aria-label="Toko tower"></div>
+        <div class="wave-box">
+          <div id="wave-preview" class="wave-preview"></div>
+          <label class="toggle"><input type="checkbox" id="auto-wave" /> <span>Auto</span></label>
+          <button id="btn-wave" class="btn primary big">Mulai Gelombang ▶</button>
+        </div>
+      </footer>
+
+      <div id="modal" class="modal" hidden>
+        <div class="modal-card glass">
+          <h1 id="modal-title">Tower Defense</h1>
+          <p id="modal-text"></p>
+          <div id="modal-best" class="best"></div>
+          <div id="modal-actions" class="modal-actions"></div>
+          <details class="help">
+            <summary>Cara bermain</summary>
+            <ul>
+              <li>Pilih tower di bawah (atau tekan <kbd>1</kbd>–<kbd>4</kbd>), lalu klik/ketuk petak rumput. Tower juga bisa di-<em>drag</em> ke papan.</li>
+              <li>Klik tower untuk upgrade, jual, atau mengganti mode target.</li>
+              <li>Mulai gelombang lebih awal untuk bonus emas.</li>
+              <li><kbd>Spasi</kbd> jeda · <kbd>F</kbd> ganti kecepatan · <kbd>N</kbd> gelombang berikut · <kbd>U</kbd> upgrade · <kbd>S</kbd> jual · <kbd>R</kbd> restart</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
